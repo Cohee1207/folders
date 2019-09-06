@@ -1,0 +1,33 @@
+﻿@model Folders.Web.Models.FolderViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = Model.Name;
+}
+
+<style>
+    h1 {
+        margin-bottom: 3rem;
+    }
+
+    a {
+        font-size: 18px;
+    }
+</style>
+
+<h1>Folder: @Model.Name</h1>
+
+@if (@Model.Children.Any())
+{
+    foreach (var child in Model.Children)
+    {
+        <div>
+            <a href="@child.Url">@child.Name</a>
+        </div>
+    }
+}
+else
+{
+    <div>
+        Folder is empty
+    </div>
+}
